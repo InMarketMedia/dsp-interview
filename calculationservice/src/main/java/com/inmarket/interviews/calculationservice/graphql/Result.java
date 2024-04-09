@@ -1,4 +1,6 @@
 package com.inmarket.interviews.calculationservice.graphql;
 
-public record Result(long value) {
+import java.math.BigInteger;
+
+public record Result(BigInteger value) {
 }

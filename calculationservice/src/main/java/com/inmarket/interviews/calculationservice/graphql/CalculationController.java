@@ -23,25 +23,40 @@ public class CalculationController {
     }
 
     @QueryMapping
-    public Result calculate(@Argument long n) {
-        return new Result(n);
+    public Calculation calculate(@Argument long n) {
+        return new Calculation(n);
     }
 
     @SchemaMapping
-    public Golden golden(Result result) {
-        BigInteger value = goldenService.calculate(result.value());
-        return new Golden(new Calculation(value), goldenService.getMin(), goldenService.getMax());
+    public Golden golden(Calculation calculation) {
+        return new Golden(calculation.value(), goldenService.getMin(), goldenService.getMax());
+    }
+
+    @SchemaMapping(typeName="Golden", field="result")
+    public Result goldenResult(Golden golden) {
+        BigInteger value = goldenService.calculate(golden.value());
+        return new Result(value);
     }
 
     @SchemaMapping
-    public Square square(Result result) {
-        BigInteger value = squareService.calculate(result.value());
-        return new Square(new Calculation(value), squareService.getMin(), squareService.getMax());
+    public Square square(Calculation calculation) {
+        return new Square(calculation.value(), squareService.getMin(), squareService.getMax());
+    }
+
+    @SchemaMapping(typeName="Square", field="result")
+    public Result squareResult(Square square) {
+        BigInteger value = squareService.calculate(square.value());
+        return new Result(value);
     }
 
     @SchemaMapping
-    public Triangle triangle(Result result) {
-        BigInteger value = triangleService.calculate(result.value());
-        return new Triangle(new Calculation(value), triangleService.getMin(), triangleService.getMax());
+    public Triangle triangle(Calculation calculation) {
+        return new Triangle(calculation.value(), triangleService.getMin(), triangleService.getMax());
+    }
+
+    @SchemaMapping(typeName="Triangle", field="result")
+    public Result triangleResult(Triangle triangle) {
+        BigInteger value = goldenService.calculate(triangle.value());
+        return new Result(value);
     }
 }

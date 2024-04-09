@@ -2,7 +2,6 @@ package com.inmarket.interviews.calculationservice.services;
 
 import com.inmarket.interviews.calculationservice.core.Calculation;
 import com.inmarket.interviews.calculationservice.core.CalculationException;
-import com.inmarket.interviews.calculationservice.core.FastGoldenCalculation;
 import com.inmarket.interviews.calculationservice.core.GoldenCalculation;
 import org.springframework.stereotype.Component;
 

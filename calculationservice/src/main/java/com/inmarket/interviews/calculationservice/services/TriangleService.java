@@ -1,7 +1,6 @@
 package com.inmarket.interviews.calculationservice.services;
 
 import com.inmarket.interviews.calculationservice.core.Calculation;
-import com.inmarket.interviews.calculationservice.core.FastTriangleCalculation;
 import com.inmarket.interviews.calculationservice.core.TriangleCalculation;
 import org.springframework.stereotype.Component;
 

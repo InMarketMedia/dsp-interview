@@ -2,10 +2,10 @@ scalar Long @specifiedBy(url: "https://scalars.graphql.org/andimarek/long.html")
 scalar BigInteger
 
 type Query {
-    calculate(n: Long!): Result!
+    calculate(n: Long!): Calculation!
 }
 
-type Result {
+type Calculation {
     value: Long!            # The value of n requested
     triangle: Triangle!
     golden: Golden!
@@ -13,24 +13,27 @@ type Result {
 }
 
 type Golden {
+    value: Long!            # The value of n requested
     min: Long!              # The minimum value of n supported
     max: Long!              # The maximum value of n supported
-    result: Calculation!
+    result: Result!
 }
 
 type Square {
+    value: Long!            # The value of n requested
     min: Long!              # The minimum value of n supported
     max: Long!              # The maximum value of n supported
-    result: Calculation!
+    result: Result!
 }
 
 type Triangle {
+    value: Long!            # The value of n requested
     min: Long!              # The minimum value of n supported
     max: Long!              # The maximum value of n supported
-    result: Calculation!
+    result: Result!
 }
 
-type Calculation {
+type Result {
     value: BigInteger!
 }
 
